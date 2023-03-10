@@ -1,2 +1,2 @@
 # multiSelfBlastSimilarity
-Nextflow workflow substituting diamond for blast with multiselfblast functionality
+Conversion of multiBlastSimilarity workflow to use diamond and remove regex depedencies
