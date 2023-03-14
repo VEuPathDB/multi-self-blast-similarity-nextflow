@@ -54,7 +54,7 @@ process diamondSimilarity {
 }
 
 process sortOutput {
-  publishDir params.outputDir, saveAs: {filename->params.dataFile}
+  publishDir params.outputDir, saveAs: {filename->params.dataFile}, mode: "copy"
   
   input:
     path output
@@ -69,7 +69,7 @@ process sortOutput {
 }
 
 process sortSimSeqs {
-  publishDir params.outputDir, saveAs: {filename->params.dataFile}
+  publishDir params.outputDir, saveAs: {filename->params.dataFile}, mode: "copy"
   
   input:
     path output
