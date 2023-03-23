@@ -11,12 +11,19 @@ process retrieveFastas {
   script:
     """
     if [[ "$tarfile" == *".gz"* ]];then
-        tar xzf $tarfile
+        cp $tarfile new.tar.gz
+        rm $tarfile
+        tar xzf new.tar.gz
     else
-        tar xf $tarfile
+        cp $tarfile new.tar
+        rm $tarfile
+        tar xf new.tar
     fi
     mv **/* .
-    rm -r */    
+    rm -r */
+    rm new.tar*
+    tar xzf *
+    rm *.tar.gz   
     """
 }
 
