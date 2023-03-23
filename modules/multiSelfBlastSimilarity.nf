@@ -22,7 +22,7 @@ process retrieveFastas {
     mv **/* .
     rm -r */
     rm new.tar*
-    tar xzf *
+    for file in `ls *.gz`; do tar -xzf \${file}; done
     rm *.tar.gz   
     """
 }
