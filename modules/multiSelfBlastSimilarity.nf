@@ -27,6 +27,7 @@ process retrieveFastas {
     """
 }
 
+
 process createDatabase {
   input:
     path newdbfasta
@@ -38,6 +39,7 @@ process createDatabase {
   script:
     template 'createDatabase.bash'
 }
+
 
 process diamondSimilarity {
   input:
@@ -60,6 +62,7 @@ process diamondSimilarity {
     template 'diamondSimilarity.bash'
 }
 
+
 process sortOutput {
   publishDir params.outputDir, saveAs: {filename->params.dataFile}, mode: "copy"
   
@@ -75,6 +78,7 @@ process sortOutput {
     """
 }
 
+
 process sortSimSeqs {
   publishDir params.outputDir, saveAs: {filename->params.dataFile}, mode: "copy"
   
@@ -89,6 +93,7 @@ process sortSimSeqs {
     cat $output | sort -k 1 > diamondSimilarity.out
     """
 }
+
 
 workflow multiBlastSelf {
   take:
